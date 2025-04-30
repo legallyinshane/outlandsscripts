@@ -1,0 +1,247 @@
+# Guild Distro Sorting Script
+# Sorts items from backpack based upon item type into 5 distro chests
+# script by TheZeroDivide
+# last update:  4/30/2025
+# todo:  add support for boots/sandals/thighboots, metallic/powder dyes
+# todo:  look into making everything pushlist based for readability
+
+# Set variables if they dont exist
+if not varexist distro_1
+    @setvar! distro_1 
+endif
+if not varexist distro_2
+    @setvar! distro_2
+endif
+if not varexist distro_3
+    @setvar! distro_3
+endif
+if not varexist distro_4
+    @setvar! distro_4
+endif
+if not varexist distro_5
+    @setvar! distro_5
+endif
+
+# Check if chests are full
+overhead "Checking Chests"
+getlabel distro_1 desc
+    if "125 items" in desc
+        overhead "First chest is full! Stopping Script!"
+        stop
+    endif
+getlabel distro_2 desc
+    if "125 items" in desc
+        overhead "Second chest is full! Stopping Script!"
+        stop
+    endif
+getlabel distro_3 desc
+    if "125 items" in desc
+        overhead "Third chest is full! Stopping Script!"
+        stop
+    endif
+getlabel distro_4 desc
+    if "125 items" in desc
+        overhead "Fourth chest is full! Stopping Script!"
+        stop
+    endif
+getlabel distro_5 desc
+    if "125 items" in desc
+        overhead "Fifth chest is full! Stopping Script!"
+        stop
+    endif
+
+overhead "Starting item sort to distro chests" 65
+clearignore
+
+#Create lists to sort cores into
+removelist coreHues_Distro_2
+createlist coreHues_Distro_2
+removelist coreHues_Distro_3
+createlist coreHues_Distro_3
+
+
+# Add Cores that should go in distro_2
+pushlist coreHues_Distro_2 2263   # Air
+pushlist coreHues_Distro_2 2087   # Blood
+pushlist coreHues_Distro_2 2155   # Death
+pushlist coreHues_Distro_2 2490   # Discipline
+pushlist coreHues_Distro_2 2767   # Earth
+pushlist coreHues_Distro_2 2635   # Fire
+pushlist coreHues_Distro_2 2669   # Gadget
+pushlist coreHues_Distro_2 2153   # Holy
+pushlist coreHues_Distro_2 2241   # Lyric
+pushlist coreHues_Distro_2 1060   # Madness
+pushlist coreHues_Distro_2 1788   # Water
+pushlist coreHues_Distro_2 2503   # War
+
+# Add Cores that should go in distro_3
+pushlist coreHues_Distro_3 1560   # Arcane
+pushlist coreHues_Distro_3 2096   # Artisan
+pushlist coreHues_Distro_3 1782   # Command
+pushlist coreHues_Distro_3 2615   # Eldritch
+pushlist coreHues_Distro_3 2843   # Fortune
+pushlist coreHues_Distro_3 2234   # Frost
+pushlist coreHues_Distro_3 2086   # Harvest
+pushlist coreHues_Distro_3 2650   # Lightning
+pushlist coreHues_Distro_3 2897   # Poison
+pushlist coreHues_Distro_3 1790   # Shadow
+pushlist coreHues_Distro_3 2599   # Void
+
+# Set Map Keywords that should do in distro_3
+removelist distro_3_keywords
+createlist distro_3_keywords
+pushlist distro_3_keywords "drawn"
+pushlist distro_3_keywords "skinning"
+pushlist distro_3_keywords "ore"
+pushlist distro_3_keywords "lumber"
+
+#Set Map Keywords that should go in distro_4
+removelist distro_4_keywords
+createlist distro_4_keywords
+pushlist distro_4_keywords "plainly"
+pushlist distro_4_keywords "expertly"
+pushlist distro_4_keywords "dull"
+pushlist distro_4_keywords "shadow"
+pushlist distro_4_keywords "copper"
+pushlist distro_4_keywords "bronze"
+pushlist distro_4_keywords "gold"
+pushlist distro_4_keywords "fish"
+
+#Set Scrolls that should go in distro_3
+removelist distro3_skillscroll_keywords
+createlist distro3_skillscroll_keywords
+pushlist distro3_skillscroll_keywords "tailoring"
+pushlist distro3_skillscroll_keywords "inscription"
+pushlist distro3_skillscroll_keywords "alchemy"
+
+
+# Sorting Cores
+overhead "Sorting Cores..."
+foreach hueVal in coreHues_Distro_2
+    while findtype 'aspect core' backpack hueVal as item
+        lift item 60000
+    drop distro_2 -1 -1 0
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+endfor
+
+foreach hueVal in coreHues_Distro_3
+    while findtype 'aspect core' backpack hueVal as item
+        lift item 60000
+    drop distro_3 -1 -1 0
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+endfor
+clearignore
+
+# Sorting maps
+overhead "Sorting Maps..." 44
+clearignore
+
+while findtype 'map' backpack as item
+    getlabel item label
+    @setvar! moved 0
+
+    foreach key in distro3_keywords
+        if key in label
+            lift item 60000
+            drop distro_3 60 90 0
+            getlabel backpack delaycheck
+            @setvar! moved 1
+            break
+        endif
+    endfor
+
+    if moved = 0
+        foreach key in distro4_keywords
+            if key in label
+                lift item 60000
+                drop distro_4 60 90 0
+                getlabel backpack delaycheck
+                @setvar! moved 1
+                break
+            endif
+        endfor
+    endif
+
+    if moved = 1
+        @ignore item
+    endif
+endwhile
+clearignore
+
+#Sorting Skill Scrolls
+overhead "Sorting Skill Scrolls..." 44
+clearignore
+
+while findtype 'scroll of calling' backpack as item
+    getlabel item label
+    @setvar! matched 0
+
+    foreach skill in distro3_skillscroll_keywords
+        if skill in label
+            lift item 1
+            drop Distro3 30 180 0
+            pause 500
+            @setvar! matched 1
+            break
+        endif
+    endfor
+
+    if matched = 0 and "scroll" in label
+        lift item 1
+        drop Distro4 30 180 0
+        pause 500
+    endif
+    @ignore item
+endwhile
+clearignore
+
+# Distro 1
+overhead "Sorting Items to First Distro Chest" 44
+# Add Item Ids to the findtype list
+while findtype 37181|3821|29030|3827|24434|43206 backpack as item
+    lift item 60000
+  drop distro_1 -1 -1 0
+  getlabel backpack delaycheck
+endwhile
+
+# Distro 2
+overhead "Sorting Items to Second Distro Chest" 44
+# Add Item Ids to the findtype list
+while findtype 22326|17087|576|17686|4026|5981|29036|3838|27611 backpack as item
+  lift item 60000
+  drop distro_2 -1 -1 0
+  getlabel backpack delaycheck
+endwhile
+
+# Distro 3
+overhead "Sorting Items to Third Distro Chest" 44
+# Add Item Ids to the findtype list
+while findtype 11858|5981|29025|15296|3839|3843|25359|3842|29034 backpack as item
+  lift item 60000
+  drop distro_3 -1 -1 0
+  getlabel backpack delaycheck
+endwhile
+
+# Distro 4
+overhead "Sorting Items to Fourth Distro Chest" 44
+# Add Item Ids to the findtype list
+while findtype 4025 backpack as item
+  lift item 60000
+  drop distro_4 -1 -1 0
+  getlabel backpack delaycheck
+endwhile
+
+# Distro 5
+overhead "Sorting Items to Fifth Distro Chest" 44
+# Add Item Ids to the findtype list
+while findtype 3861|3885|3877|3862|3859|3865|3856|3873|3878|4225|39889|39891|39892|39896|39897|39898|39905|39909|39911|39912|39916|39917|39918|51098|22326 backpack as item
+    lift item 60000
+    drop distro_5 -1 -1 0
+    getlabel backpack delaycheck
+endwhile
+
+overhead "Item sorting complete!" 65
