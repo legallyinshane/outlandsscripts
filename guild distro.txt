@@ -54,41 +54,41 @@ overhead "Starting item sort to distro chests" 65
 clearignore
 
 #Create lists to sort cores into
-removelist coreHues_Distro_2
-createlist coreHues_Distro_2
 removelist coreHues_Distro_3
 createlist coreHues_Distro_3
-
-
-# Add Cores that should go in distro_2
-# Air (2263), Blood (2087), Death (2155), Discipline (2490), Earth (2767), Fire (2635), Gadget (2669), Holy (2153), Lyric (2241), Madness (1060), Water (1788), War (2503)
-pushlist coreHues_Distro_2 2263
-pushlist coreHues_Distro_2 2087
-pushlist coreHues_Distro_2 2155
-pushlist coreHues_Distro_2 2490
-pushlist coreHues_Distro_2 2767
-pushlist coreHues_Distro_2 2635
-pushlist coreHues_Distro_2 2669
-pushlist coreHues_Distro_2 2153
-pushlist coreHues_Distro_2 2241
-pushlist coreHues_Distro_2 1060
-pushlist coreHues_Distro_2 1788
-pushlist coreHues_Distro_2 2503
+removelist coreHues_Distro_4
+createlist coreHues_Distro_4
 
 
 # Add Cores that should go in distro_3
+# Air (2263), Blood (2087), Death (2155), Discipline (2490), Earth (2767), Fire (2635), Gadget (2669), Holy (2153), Lyric (2241), Madness (1060), Water (1788), War (2503)
+pushlist coreHues_Distro_3 2263
+pushlist coreHues_Distro_3 2087
+pushlist coreHues_Distro_3 2155
+pushlist coreHues_Distro_3 2490
+pushlist coreHues_Distro_3 2767
+pushlist coreHues_Distro_3 2635
+pushlist coreHues_Distro_3 2669
+pushlist coreHues_Distro_3 2153
+pushlist coreHues_Distro_3 2241
+pushlist coreHues_Distro_3 1060
+pushlist coreHues_Distro_3 1788
+pushlist coreHues_Distro_3 2503
+
+
+# Add Cores that should go in distro_4
 # Arcane (1560), Artisan (2096), Command (1782), Eldritch (2615), Fortune (2843), Frost (2234), Harvest (2086), Lightning (2650), Poison (2897), Shadow (1790), Void (2582)
-pushlist coreHues_Distro_3 1560
-pushlist coreHues_Distro_3 2096
-pushlist coreHues_Distro_3 1782
-pushlist coreHues_Distro_3 2615
-pushlist coreHues_Distro_3 2843
-pushlist coreHues_Distro_3 2234
-pushlist coreHues_Distro_3 2086
-pushlist coreHues_Distro_3 2650
-pushlist coreHues_Distro_3 2897
-pushlist coreHues_Distro_3 1790
-pushlist coreHues_Distro_3 2582
+pushlist coreHues_Distro_4 1560
+pushlist coreHues_Distro_4 2096
+pushlist coreHues_Distro_4 1782
+pushlist coreHues_Distro_4 2615
+pushlist coreHues_Distro_4 2843
+pushlist coreHues_Distro_4 2234
+pushlist coreHues_Distro_4 2086
+pushlist coreHues_Distro_4 2650
+pushlist coreHues_Distro_4 2897
+pushlist coreHues_Distro_4 1790
+pushlist coreHues_Distro_4 2582
 
 
 # Set Map Keywords that should do in distro_3
@@ -203,19 +203,19 @@ pushlist special_Hues_Distro_4 "1500"
 
 # Sorting Cores
 overhead "Sorting Cores..."
-foreach hueVal in coreHues_Distro_2
+foreach hueVal in coreHues_Distro_3
     while findtype 'aspect core' backpack hueVal as item
         lift item 1
-    drop distro_2 -1 -1 0
+        drop distro_3 -1 -1 0
         getlabel backpack delaycheck
         @ignore item
     endwhile
 endfor
 
-foreach hueVal in coreHues_Distro_3
+foreach hueVal in coreHues_Distro_4
     while findtype 'aspect core' backpack hueVal as item
         lift item 1
-    drop distro_3 -1 -1 0
+    drop distro_4 -1 -1 0
         getlabel backpack delaycheck
         @ignore item
     endwhile
