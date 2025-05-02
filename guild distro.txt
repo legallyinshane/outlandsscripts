@@ -1,7 +1,7 @@
 # Guild Distro Sorting Script
 # Sorts items from backpack based upon item type into 5 distro chests
 # script by TheZeroDivide
-# last update:  5/2/2025 - removed inline comments, update void core hue value, update lift values, first pass at dyes
+# last update:  5/2/2025 - removed inline comments, update void core hue value, update lift values
 # todo:  boots/sandals/thighboots
 
 
@@ -118,87 +118,86 @@ pushlist distro3_skillscroll_keywords "tailoring"
 pushlist distro3_skillscroll_keywords "inscription"
 pushlist distro3_skillscroll_keywords "alchemy"
 
-#Set Dye Hues that should go distro_4
-# Special dye hues → Distro 4
-removelist specialDyeHues_Distro_4
-createlist specialDyeHues_Distro_4
-pushlist specialDyeHues_Distro_4 4124
-pushlist specialDyeHues_Distro_4 4125
-pushlist specialDyeHues_Distro_4 4126
-pushlist specialDyeHues_Distro_4 4127
-pushlist specialDyeHues_Distro_4 4128
-pushlist specialDyeHues_Distro_4 4129
-pushlist specialDyeHues_Distro_4 4130
-pushlist specialDyeHues_Distro_4 4131
-pushlist specialDyeHues_Distro_4 4132
-pushlist specialDyeHues_Distro_4 4133
-pushlist specialDyeHues_Distro_4 4134
-pushlist specialDyeHues_Distro_4 4135
-pushlist specialDyeHues_Distro_4 4136
-pushlist specialDyeHues_Distro_4 4137
-pushlist specialDyeHues_Distro_4 4138
-pushlist specialDyeHues_Distro_4 4139
-pushlist specialDyeHues_Distro_4 4140
-pushlist specialDyeHues_Distro_4 4141
-pushlist specialDyeHues_Distro_4 2227
-pushlist specialDyeHues_Distro_4 1495
-pushlist specialDyeHues_Distro_4 1496
-pushlist specialDyeHues_Distro_4 1382
-pushlist specialDyeHues_Distro_4 1494
-pushlist specialDyeHues_Distro_4 2246
-pushlist specialDyeHues_Distro_4 1381
-pushlist specialDyeHues_Distro_4 2255
-pushlist specialDyeHues_Distro_4 2877
-pushlist specialDyeHues_Distro_4 1384
-pushlist specialDyeHues_Distro_4 1462
-pushlist specialDyeHues_Distro_4 2173
-pushlist specialDyeHues_Distro_4 2903
-pushlist specialDyeHues_Distro_4 2808
-pushlist specialDyeHues_Distro_4 1952
-pushlist specialDyeHues_Distro_4 1590
-pushlist specialDyeHues_Distro_4 2380
-pushlist specialDyeHues_Distro_4 1989
-pushlist specialDyeHues_Distro_4 1990
-pushlist specialDyeHues_Distro_4 2653
-pushlist specialDyeHues_Distro_4 2398
-pushlist specialDyeHues_Distro_4 2828
-pushlist specialDyeHues_Distro_4 2845
-pushlist specialDyeHues_Distro_4 2827
-pushlist specialDyeHues_Distro_4 2826
-pushlist specialDyeHues_Distro_4 2379
-pushlist specialDyeHues_Distro_4 1484
-pushlist specialDyeHues_Distro_4 2898
-pushlist specialDyeHues_Distro_4 1489
-pushlist specialDyeHues_Distro_4 1995
-pushlist specialDyeHues_Distro_4 2167
-pushlist specialDyeHues_Distro_4 2928
-pushlist specialDyeHues_Distro_4 1470
-pushlist specialDyeHues_Distro_4 1467
-pushlist specialDyeHues_Distro_4 2807
-pushlist specialDyeHues_Distro_4 1939
-pushlist specialDyeHues_Distro_4 1465
-pushlist specialDyeHues_Distro_4 2174
-pushlist specialDyeHues_Distro_4 2804
-pushlist specialDyeHues_Distro_4 2226
-pushlist specialDyeHues_Distro_4 2801
-pushlist specialDyeHues_Distro_4 1156
-pushlist specialDyeHues_Distro_4 2230
-pushlist specialDyeHues_Distro_4 1589
-pushlist specialDyeHues_Distro_4 1779
-pushlist specialDyeHues_Distro_4 1909
-pushlist specialDyeHues_Distro_4 2091
-pushlist specialDyeHues_Distro_4 2099
-pushlist specialDyeHues_Distro_4 2085
-pushlist specialDyeHues_Distro_4 2092
-pushlist specialDyeHues_Distro_4 2089
-pushlist specialDyeHues_Distro_4 2796
-pushlist specialDyeHues_Distro_4 2338
-pushlist specialDyeHues_Distro_4 2093
-pushlist specialDyeHues_Distro_4 2659
-pushlist specialDyeHues_Distro_4 2841
-pushlist specialDyeHues_Distro_4 1182
-pushlist specialDyeHues_Distro_4 1183
-pushlist specialDyeHues_Distro_4 1500
+#Set Special Hues that should go to distro_4
+removelist special_Hues_Distro_4
+createlist special_Hues_Distro_4
+pushlist special_Hues_Distro_4 "4124"
+pushlist special_Hues_Distro_4 "4125"
+pushlist special_Hues_Distro_4 "4126"
+pushlist special_Hues_Distro_4 "4127"
+pushlist special_Hues_Distro_4 "4128"
+pushlist special_Hues_Distro_4 "4129"
+pushlist special_Hues_Distro_4 "4130"
+pushlist special_Hues_Distro_4 "4131"
+pushlist special_Hues_Distro_4 "4132"
+pushlist special_Hues_Distro_4 "4133"
+pushlist special_Hues_Distro_4 "4134"
+pushlist special_Hues_Distro_4 "4135"
+pushlist special_Hues_Distro_4 "4136"
+pushlist special_Hues_Distro_4 "4137"
+pushlist special_Hues_Distro_4 "4138"
+pushlist special_Hues_Distro_4 "4139"
+pushlist special_Hues_Distro_4 "4140"
+pushlist special_Hues_Distro_4 "4141"
+pushlist special_Hues_Distro_4 "2227"
+pushlist special_Hues_Distro_4 "1495"
+pushlist special_Hues_Distro_4 "1496"
+pushlist special_Hues_Distro_4 "1382"
+pushlist special_Hues_Distro_4 "1494"
+pushlist special_Hues_Distro_4 "2246"
+pushlist special_Hues_Distro_4 "1381"
+pushlist special_Hues_Distro_4 "2255"
+pushlist special_Hues_Distro_4 "2877"
+pushlist special_Hues_Distro_4 "1384"
+pushlist special_Hues_Distro_4 "1462"
+pushlist special_Hues_Distro_4 "2173"
+pushlist special_Hues_Distro_4 "2903"
+pushlist special_Hues_Distro_4 "2808"
+pushlist special_Hues_Distro_4 "1952"
+pushlist special_Hues_Distro_4 "1590"
+pushlist special_Hues_Distro_4 "2380"
+pushlist special_Hues_Distro_4 "1989"
+pushlist special_Hues_Distro_4 "1990"
+pushlist special_Hues_Distro_4 "2653"
+pushlist special_Hues_Distro_4 "2398"
+pushlist special_Hues_Distro_4 "2828"
+pushlist special_Hues_Distro_4 "2845"
+pushlist special_Hues_Distro_4 "2827"
+pushlist special_Hues_Distro_4 "2826"
+pushlist special_Hues_Distro_4 "2379"
+pushlist special_Hues_Distro_4 "1484"
+pushlist special_Hues_Distro_4 "2898"
+pushlist special_Hues_Distro_4 "1489"
+pushlist special_Hues_Distro_4 "1995"
+pushlist special_Hues_Distro_4 "2167"
+pushlist special_Hues_Distro_4 "2928"
+pushlist special_Hues_Distro_4 "1470"
+pushlist special_Hues_Distro_4 "1467"
+pushlist special_Hues_Distro_4 "2807"
+pushlist special_Hues_Distro_4 "1939"
+pushlist special_Hues_Distro_4 "1465"
+pushlist special_Hues_Distro_4 "2174"
+pushlist special_Hues_Distro_4 "2804"
+pushlist special_Hues_Distro_4 "2226"
+pushlist special_Hues_Distro_4 "2801"
+pushlist special_Hues_Distro_4 "1156"
+pushlist special_Hues_Distro_4 "2230"
+pushlist special_Hues_Distro_4 "1589"
+pushlist special_Hues_Distro_4 "1779"
+pushlist special_Hues_Distro_4 "1909"
+pushlist special_Hues_Distro_4 "2091"
+pushlist special_Hues_Distro_4 "2099"
+pushlist special_Hues_Distro_4 "2085"
+pushlist special_Hues_Distro_4 "2092"
+pushlist special_Hues_Distro_4 "2089"
+pushlist special_Hues_Distro_4 "2796"
+pushlist special_Hues_Distro_4 "2338"
+pushlist special_Hues_Distro_4 "2093"
+pushlist special_Hues_Distro_4 "2659"
+pushlist special_Hues_Distro_4 "2841"
+pushlist special_Hues_Distro_4 "1182"
+pushlist special_Hues_Distro_4 "1183"
+pushlist special_Hues_Distro_4 "1500"
 
 
 
@@ -286,20 +285,19 @@ while findtype 'scroll of calling' backpack as item
 endwhile
 clearignore
 
-# Sorting Dyes
+# Sorting Dyes (bottle_) into Distro chests
 overhead "Sorting Dyes..." 44
 clearignore
 
 while findtype 'bottle_' backpack as dye
     getlabel dye label
-    gethue dye hue
     @setvar! moved 0
 
-    # Check if hue is in special list → Distro 4
-    foreach specialHue in specialDyeHues_Distro_4
-        if hue = specialHue
+    # Check if special hue → distro_4
+    foreach hue in special_Hues_Distro_4
+        if hue in label
             lift dye 1
-            drop distro_4 -1 -1 0
+            drop distro_4 60 90 0
             getlabel backpack delaycheck
             @setvar! moved 1
             break
@@ -322,6 +320,7 @@ while findtype 'bottle_' backpack as dye
 endwhile
 
 clearignore
+
 
 
 # Distro 1
