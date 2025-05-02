@@ -1,7 +1,7 @@
 # Guild Distro Sorting Script
 # Sorts items from backpack based upon item type into 5 distro chests
 # script by TheZeroDivide
-# last update:  5/2/2025 - removed inline comments, update void core hue value
+# last update:  5/2/2025 - removed inline comments, update void core hue value, update lift values
 # todo:  add support for chain dyes, boots/sandals/thighboots, metallic/powder dyes
 
 
@@ -123,7 +123,7 @@ pushlist distro3_skillscroll_keywords "alchemy"
 overhead "Sorting Cores..."
 foreach hueVal in coreHues_Distro_2
     while findtype 'aspect core' backpack hueVal as item
-        lift item 60000
+        lift item 1
     drop distro_2 -1 -1 0
         getlabel backpack delaycheck
         @ignore item
@@ -132,7 +132,7 @@ endfor
 
 foreach hueVal in coreHues_Distro_3
     while findtype 'aspect core' backpack hueVal as item
-        lift item 60000
+        lift item 1
     drop distro_3 -1 -1 0
         getlabel backpack delaycheck
         @ignore item
@@ -150,7 +150,7 @@ while findtype 'map' backpack as item
 
     foreach key in distro3_keywords
         if key in label
-            lift item 60000
+            lift item 1
             drop distro_3 60 90 0
             getlabel backpack delaycheck
             @setvar! moved 1
@@ -161,7 +161,7 @@ while findtype 'map' backpack as item
     if moved = 0
         foreach key in distro4_keywords
             if key in label
-                lift item 60000
+                lift item 1
                 drop distro_4 60 90 0
                 getlabel backpack delaycheck
                 @setvar! moved 1
@@ -216,7 +216,7 @@ endwhile
 overhead "Sorting Items to Second Distro Chest" 44
 # Add Item Ids to the findtype list
 while findtype 22326|17087|576|17686|4026|5981|29036|3838|27611 backpack as item
-  lift item 60000
+    lift item 1
   drop distro_2 -1 -1 0
   getlabel backpack delaycheck
 endwhile
@@ -225,7 +225,7 @@ endwhile
 overhead "Sorting Items to Third Distro Chest" 44
 # Add Item Ids to the findtype list
 while findtype 11858|5981|29025|15296|3839|3843|25359|3842 backpack as item
-  lift item 60000
+    lift item 1
   drop distro_3 -1 -1 0
   getlabel backpack delaycheck
 endwhile
@@ -234,7 +234,7 @@ endwhile
 overhead "Sorting Items to Fourth Distro Chest" 44
 # Add Item Ids to the findtype list
 while findtype 4025 backpack as item
-  lift item 60000
+    lift item 1
   drop distro_4 -1 -1 0
   getlabel backpack delaycheck
 endwhile
