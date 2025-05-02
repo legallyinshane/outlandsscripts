@@ -1,7 +1,7 @@
 # Guild Distro Sorting Script
 # Sorts items from backpack based upon item type into 5 distro chests
 # script by TheZeroDivide
-# last update:  5/2/2025 - removed inline comments, update void core hue value, update lift values
+# last update:  5/2/2025 - removed inline comments, update void core hue value, update lift values, first pass at dyes
 # todo:  boots/sandals/thighboots
 
 
@@ -309,10 +309,10 @@ while findtype 'bottle_' backpack as dye
     # If not special, sort by type name
     if moved = 0
         if 'carpet' in label or 'runebook' in label
-            lift dye 60000
+            lift dye 1
             drop distro_2 -1 -1 0
         elseif 'furniture' in label or 'mount' in label or 'chain' in label or 'backpack' in label or 'accessory' in label or 'headware' in label or 'hair' in label or 'facial hair' in label
-            lift dye 60000
+            lift dye 1
             drop distro_3 -1 -1 0
         endif
         getlabel backpack delaycheck
