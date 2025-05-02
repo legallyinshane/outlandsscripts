@@ -117,6 +117,7 @@ createlist distro3_skillscroll_keywords
 pushlist distro3_skillscroll_keywords "tailoring"
 pushlist distro3_skillscroll_keywords "inscription"
 pushlist distro3_skillscroll_keywords "alchemy"
+pushlist distro3_skillscroll_keywords "necromancy"
 
 #Set Special Hues that should go to distro_4
 removelist special_Hues_Distro_4
