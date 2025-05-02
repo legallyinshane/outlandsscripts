@@ -1,9 +1,9 @@
 # Guild Distro Sorting Script
 # Sorts items from backpack based upon item type into 5 distro chests
 # script by TheZeroDivide
-# last update:  4/30/2025
-# todo:  add support for boots/sandals/thighboots, metallic/powder dyes
-# todo:  look into making everything pushlist based for readability
+# last update:  5/2/2025 - removed inline comments
+# todo:  add support for chain dyes, boots/sandals/thighboots, metallic/powder dyes
+
 
 # Set variables if they dont exist
 if not varexist distro_1
@@ -61,31 +61,35 @@ createlist coreHues_Distro_3
 
 
 # Add Cores that should go in distro_2
-pushlist coreHues_Distro_2 2263   # Air
-pushlist coreHues_Distro_2 2087   # Blood
-pushlist coreHues_Distro_2 2155   # Death
-pushlist coreHues_Distro_2 2490   # Discipline
-pushlist coreHues_Distro_2 2767   # Earth
-pushlist coreHues_Distro_2 2635   # Fire
-pushlist coreHues_Distro_2 2669   # Gadget
-pushlist coreHues_Distro_2 2153   # Holy
-pushlist coreHues_Distro_2 2241   # Lyric
-pushlist coreHues_Distro_2 1060   # Madness
-pushlist coreHues_Distro_2 1788   # Water
-pushlist coreHues_Distro_2 2503   # War
+# Air (2263), Blood (2087), Death (2155), Discipline (2490), Earth (2767), Fire (2635), Gadget (2669), Holy (2153), Lyric (2241), Madness (1060), Water (1788), War (2503)
+pushlist coreHues_Distro_2 2263
+pushlist coreHues_Distro_2 2087
+pushlist coreHues_Distro_2 2155
+pushlist coreHues_Distro_2 2490
+pushlist coreHues_Distro_2 2767
+pushlist coreHues_Distro_2 2635
+pushlist coreHues_Distro_2 2669
+pushlist coreHues_Distro_2 2153
+pushlist coreHues_Distro_2 2241
+pushlist coreHues_Distro_2 1060
+pushlist coreHues_Distro_2 1788
+pushlist coreHues_Distro_2 2503
+
 
 # Add Cores that should go in distro_3
-pushlist coreHues_Distro_3 1560   # Arcane
-pushlist coreHues_Distro_3 2096   # Artisan
-pushlist coreHues_Distro_3 1782   # Command
-pushlist coreHues_Distro_3 2615   # Eldritch
-pushlist coreHues_Distro_3 2843   # Fortune
-pushlist coreHues_Distro_3 2234   # Frost
-pushlist coreHues_Distro_3 2086   # Harvest
-pushlist coreHues_Distro_3 2650   # Lightning
-pushlist coreHues_Distro_3 2897   # Poison
-pushlist coreHues_Distro_3 1790   # Shadow
-pushlist coreHues_Distro_3 2599   # Void
+# Arcane (1560), Artisan (2096), Command (1782), Eldritch (2615), Fortune (2843), Frost (2234), Harvest (2086), Lightning (2650), Poison (2897), Shadow (1790), Void (2599)
+pushlist coreHues_Distro_3 1560
+pushlist coreHues_Distro_3 2096
+pushlist coreHues_Distro_3 1782
+pushlist coreHues_Distro_3 2615
+pushlist coreHues_Distro_3 2843
+pushlist coreHues_Distro_3 2234
+pushlist coreHues_Distro_3 2086
+pushlist coreHues_Distro_3 2650
+pushlist coreHues_Distro_3 2897
+pushlist coreHues_Distro_3 1790
+pushlist coreHues_Distro_3 2599
+
 
 # Set Map Keywords that should do in distro_3
 removelist distro_3_keywords
@@ -220,7 +224,7 @@ endwhile
 # Distro 3
 overhead "Sorting Items to Third Distro Chest" 44
 # Add Item Ids to the findtype list
-while findtype 11858|5981|29025|15296|3839|3843|25359|3842|29034 backpack as item
+while findtype 11858|5981|29025|15296|3839|3843|25359|3842 backpack as item
   lift item 60000
   drop distro_3 -1 -1 0
   getlabel backpack delaycheck
