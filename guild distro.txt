@@ -298,7 +298,7 @@ while findtype 'bottle_' backpack as dye
     # Check if hue is in special list → Distro 4
     foreach specialHue in specialDyeHues_Distro_4
         if hue = specialHue
-            lift dye 60000
+            lift dye 1
             drop distro_4 -1 -1 0
             getlabel backpack delaycheck
             @setvar! moved 1
