@@ -1,7 +1,7 @@
 # Guild Distro Sorting Script
 # Sorts items from backpack based upon item type into 5 distro chests
 # script by TheZeroDivide
-# last update:  5/2/2025 - removed inline comments
+# last update:  5/2/2025 - removed inline comments, update void core hue value
 # todo:  add support for chain dyes, boots/sandals/thighboots, metallic/powder dyes
 
 
@@ -77,7 +77,7 @@ pushlist coreHues_Distro_2 2503
 
 
 # Add Cores that should go in distro_3
-# Arcane (1560), Artisan (2096), Command (1782), Eldritch (2615), Fortune (2843), Frost (2234), Harvest (2086), Lightning (2650), Poison (2897), Shadow (1790), Void (2599)
+# Arcane (1560), Artisan (2096), Command (1782), Eldritch (2615), Fortune (2843), Frost (2234), Harvest (2086), Lightning (2650), Poison (2897), Shadow (1790), Void (2582)
 pushlist coreHues_Distro_3 1560
 pushlist coreHues_Distro_3 2096
 pushlist coreHues_Distro_3 1782
@@ -88,7 +88,7 @@ pushlist coreHues_Distro_3 2086
 pushlist coreHues_Distro_3 2650
 pushlist coreHues_Distro_3 2897
 pushlist coreHues_Distro_3 1790
-pushlist coreHues_Distro_3 2599
+pushlist coreHues_Distro_3 2582
 
 
 # Set Map Keywords that should do in distro_3
