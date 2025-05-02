@@ -2,7 +2,7 @@
 # Sorts items from backpack based upon item type into 5 distro chests
 # script by TheZeroDivide
 # last update:  5/2/2025 - removed inline comments, update void core hue value, update lift values
-# todo:  add support for chain dyes, boots/sandals/thighboots, metallic/powder dyes
+# todo:  boots/sandals/thighboots
 
 
 # Set variables if they dont exist
@@ -118,6 +118,89 @@ pushlist distro3_skillscroll_keywords "tailoring"
 pushlist distro3_skillscroll_keywords "inscription"
 pushlist distro3_skillscroll_keywords "alchemy"
 
+#Set Dye Hues that should go distro_4
+# Special dye hues → Distro 4
+removelist specialDyeHues_Distro_4
+createlist specialDyeHues_Distro_4
+pushlist specialDyeHues_Distro_4 4124
+pushlist specialDyeHues_Distro_4 4125
+pushlist specialDyeHues_Distro_4 4126
+pushlist specialDyeHues_Distro_4 4127
+pushlist specialDyeHues_Distro_4 4128
+pushlist specialDyeHues_Distro_4 4129
+pushlist specialDyeHues_Distro_4 4130
+pushlist specialDyeHues_Distro_4 4131
+pushlist specialDyeHues_Distro_4 4132
+pushlist specialDyeHues_Distro_4 4133
+pushlist specialDyeHues_Distro_4 4134
+pushlist specialDyeHues_Distro_4 4135
+pushlist specialDyeHues_Distro_4 4136
+pushlist specialDyeHues_Distro_4 4137
+pushlist specialDyeHues_Distro_4 4138
+pushlist specialDyeHues_Distro_4 4139
+pushlist specialDyeHues_Distro_4 4140
+pushlist specialDyeHues_Distro_4 4141
+pushlist specialDyeHues_Distro_4 2227
+pushlist specialDyeHues_Distro_4 1495
+pushlist specialDyeHues_Distro_4 1496
+pushlist specialDyeHues_Distro_4 1382
+pushlist specialDyeHues_Distro_4 1494
+pushlist specialDyeHues_Distro_4 2246
+pushlist specialDyeHues_Distro_4 1381
+pushlist specialDyeHues_Distro_4 2255
+pushlist specialDyeHues_Distro_4 2877
+pushlist specialDyeHues_Distro_4 1384
+pushlist specialDyeHues_Distro_4 1462
+pushlist specialDyeHues_Distro_4 2173
+pushlist specialDyeHues_Distro_4 2903
+pushlist specialDyeHues_Distro_4 2808
+pushlist specialDyeHues_Distro_4 1952
+pushlist specialDyeHues_Distro_4 1590
+pushlist specialDyeHues_Distro_4 2380
+pushlist specialDyeHues_Distro_4 1989
+pushlist specialDyeHues_Distro_4 1990
+pushlist specialDyeHues_Distro_4 2653
+pushlist specialDyeHues_Distro_4 2398
+pushlist specialDyeHues_Distro_4 2828
+pushlist specialDyeHues_Distro_4 2845
+pushlist specialDyeHues_Distro_4 2827
+pushlist specialDyeHues_Distro_4 2826
+pushlist specialDyeHues_Distro_4 2379
+pushlist specialDyeHues_Distro_4 1484
+pushlist specialDyeHues_Distro_4 2898
+pushlist specialDyeHues_Distro_4 1489
+pushlist specialDyeHues_Distro_4 1995
+pushlist specialDyeHues_Distro_4 2167
+pushlist specialDyeHues_Distro_4 2928
+pushlist specialDyeHues_Distro_4 1470
+pushlist specialDyeHues_Distro_4 1467
+pushlist specialDyeHues_Distro_4 2807
+pushlist specialDyeHues_Distro_4 1939
+pushlist specialDyeHues_Distro_4 1465
+pushlist specialDyeHues_Distro_4 2174
+pushlist specialDyeHues_Distro_4 2804
+pushlist specialDyeHues_Distro_4 2226
+pushlist specialDyeHues_Distro_4 2801
+pushlist specialDyeHues_Distro_4 1156
+pushlist specialDyeHues_Distro_4 2230
+pushlist specialDyeHues_Distro_4 1589
+pushlist specialDyeHues_Distro_4 1779
+pushlist specialDyeHues_Distro_4 1909
+pushlist specialDyeHues_Distro_4 2091
+pushlist specialDyeHues_Distro_4 2099
+pushlist specialDyeHues_Distro_4 2085
+pushlist specialDyeHues_Distro_4 2092
+pushlist specialDyeHues_Distro_4 2089
+pushlist specialDyeHues_Distro_4 2796
+pushlist specialDyeHues_Distro_4 2338
+pushlist specialDyeHues_Distro_4 2093
+pushlist specialDyeHues_Distro_4 2659
+pushlist specialDyeHues_Distro_4 2841
+pushlist specialDyeHues_Distro_4 1182
+pushlist specialDyeHues_Distro_4 1183
+pushlist specialDyeHues_Distro_4 1500
+
+
 
 # Sorting Cores
 overhead "Sorting Cores..."
@@ -202,6 +285,44 @@ while findtype 'scroll of calling' backpack as item
     @ignore item
 endwhile
 clearignore
+
+# Sorting Dyes
+overhead "Sorting Dyes..." 44
+clearignore
+
+while findtype 'bottle_' backpack as dye
+    getlabel dye label
+    gethue dye hue
+    @setvar! moved 0
+
+    # Check if hue is in special list → Distro 4
+    foreach specialHue in specialDyeHues_Distro_4
+        if hue = specialHue
+            lift dye 60000
+            drop distro_4 -1 -1 0
+            getlabel backpack delaycheck
+            @setvar! moved 1
+            break
+        endif
+    endfor
+
+    # If not special, sort by type name
+    if moved = 0
+        if 'carpet' in label or 'runebook' in label
+            lift dye 60000
+            drop distro_2 -1 -1 0
+        elseif 'furniture' in label or 'mount' in label or 'chain' in label or 'backpack' in label or 'accessory' in label or 'headware' in label or 'hair' in label or 'facial hair' in label
+            lift dye 60000
+            drop distro_3 -1 -1 0
+        endif
+        getlabel backpack delaycheck
+    endif
+
+    @ignore dye
+endwhile
+
+clearignore
+
 
 # Distro 1
 overhead "Sorting Items to First Distro Chest" 44
