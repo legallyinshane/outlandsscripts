@@ -152,8 +152,6 @@ pushlist Hues_Distro_3 2804 #DarkForest
 pushlist Hues_Distro_3 2226 #DarkPeacock
 pushlist Hues_Distro_3 2801 #DarkDenim
 pushlist Hues_Distro_3 1156 #DarkBerry
-pushlist Hues_Distro_3 2230 #DarkJam
-pushlist Hues_Distro_3 1589 #DarkChocolate
 
 #Set Hues of Dye, Cloth, or Clothing that should go to distro_4
 removelist Hues_Distro_4
@@ -209,6 +207,8 @@ pushlist Hues_Distro_4 1995 #MetallicWine
 pushlist Hues_Distro_4 2167 #MetallicPewter
 pushlist Hues_Distro_4 2928 #MetallicChalk
 pushlist Hues_Distro_4 1470 #MetallicUmber
+pushlist Hues_Distro_4 2230 #DarkJam
+pushlist Hues_Distro_4 1589 #DarkChocolate
 
 # Sorting Cores
 overhead "Sorting Cores..."
@@ -246,7 +246,6 @@ while findtype 'map' backpack as item
             drop distro_3 60 90 0
             getlabel backpack delaycheck
             @setvar! moved 1
-            break
         endif
     endfor
 
@@ -257,7 +256,6 @@ while findtype 'map' backpack as item
                 drop distro_4 60 90 0
                 getlabel backpack delaycheck
                 @setvar! moved 1
-                break
             endif
         endfor
     endif
@@ -276,13 +274,12 @@ while findtype 'scroll of calling' backpack as item
     getlabel item label
     @setvar! matched 0
 
-    foreach skill in distro3_skillscroll_keywords
-        if skill in label
+    foreach mastery in distro3_skillscroll_keywords
+            if mastery in label
             lift item 1
             drop Distro3 30 180 0
             pause 500
             @setvar! matched 1
-            break
         endif
     endfor
 
@@ -446,7 +443,7 @@ endwhile
 # Distro 2
 overhead "Sorting Items to Second Distro Chest" 44
 # Add Item Ids to the findtype list
-while findtype 22326|17087|576|17686|4026|5981|29036|3838|27611 backpack as item
+while findtype 17087|576|17686|4026|5981|29036|3838|27611 backpack as item
     lift item 1
     drop distro_2
      getlabel backpack delaycheck
