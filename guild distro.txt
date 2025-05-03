@@ -2,9 +2,7 @@
 # Sorts items from backpack based upon item type into 5 distro chests
 # script by TheZeroDivide
 # script edited by LyzaLii
-# last update:  5/2/2025 - added functionality for  hued cloth and clothing
-# todo: shift to using hue lists to target different  hued items to specific chests
-
+# last update:  5/2/2025 - First Working System
 
 # Set variables if they dont exist
 if not varexist distro_1
@@ -111,65 +109,6 @@ pushlist distro_3_keywords "copper"
 pushlist distro_3_keywords "bronze"
 pushlist distro_3_keywords "gold"
 pushlist distro_3_keywords "fish"
-
-#Set Scrolls that should go in distro_4
-removelist distro4_skillscroll_keywords
-createlist distro4_skillscroll_keywords
-pushlist distro4_skillscroll_keywords "tailoring"
-pushlist distro4_skillscroll_keywords "inscription"
-pushlist distro4_skillscroll_keywords "alchemy"
-pushlist distro4_skillscroll_keywords "necromancy"
-
-#Set Scrolls that should go in distro_3
-removelist distro3_skillscroll_keywords
-createlist distro3_skillscroll_keywords
-pushlist distro3_skillscroll_keywords "anatomy"
-pushlist distro3_skillscroll_keywords "archery"
-pushlist distro3_skillscroll_keywords "fencing"
-pushlist distro3_skillscroll_keywords "mace fighting"
-pushlist distro3_skillscroll_keywords "parrying"
-pushlist distro3_skillscroll_keywords "swordsmanship"
-pushlist distro3_skillscroll_keywords "tactics"
-pushlist distro3_skillscroll_keywords "wrestling"
-pushlist distro3_skillscroll_keywords "magery"
-pushlist distro3_skillscroll_keywords "evaluating intelligence"
-pushlist distro3_skillscroll_keywords "meditation"
-pushlist distro3_skillscroll_keywords "resisting spells"
-pushlist distro3_skillscroll_keywords "spirit speak"
-pushlist distro3_skillscroll_keywords "chivalry"
-pushlist distro3_skillscroll_keywords "arcane"
-pushlist distro3_skillscroll_keywords "musicianship"
-pushlist distro3_skillscroll_keywords "discordance"
-pushlist distro3_skillscroll_keywords "peacemaking"
-pushlist distro3_skillscroll_keywords "provocation"
-pushlist distro3_skillscroll_keywords "animal lore"
-pushlist distro3_skillscroll_keywords "animal taming"
-pushlist distro3_skillscroll_keywords "herding"
-pushlist distro3_skillscroll_keywords "veterinary"
-pushlist distro3_skillscroll_keywords "tracking"
-pushlist distro3_skillscroll_keywords "camping"
-pushlist distro3_skillscroll_keywords "fishing"
-pushlist distro3_skillscroll_keywords "blacksmithy"
-pushlist distro3_skillscroll_keywords "carpentry"
-pushlist distro3_skillscroll_keywords "cooking"
-pushlist distro3_skillscroll_keywords "tinkering"
-pushlist distro3_skillscroll_keywords "mining"
-pushlist distro3_skillscroll_keywords "lumberjacking"
-pushlist distro3_skillscroll_keywords "hiding"
-pushlist distro3_skillscroll_keywords "stealth"
-pushlist distro3_skillscroll_keywords "snooping"
-pushlist distro3_skillscroll_keywords "stealing"
-pushlist distro3_skillscroll_keywords "lockpicking"
-pushlist distro3_skillscroll_keywords "detecting hidden"
-pushlist distro3_skillscroll_keywords "poisoning"
-pushlist distro3_skillscroll_keywords "arms lore"
-pushlist distro3_skillscroll_keywords "begging"
-pushlist distro3_skillscroll_keywords "cartography"
-pushlist distro3_skillscroll_keywords "forensic evaluation"
-pushlist distro3_skillscroll_keywords "item identification"
-pushlist distro3_skillscroll_keywords "taste identification"
-pushlist distro3_skillscroll_keywords "focus"
-
 
 #Set Hues of Dye, Cloth, or Clothing that should go to distro_2
 removelist Hues_Distro_2
@@ -320,32 +259,30 @@ clearignore
 overhead "Sorting Skill Scrolls..." 44
 clearignore
 
-while findtype 'scroll of calling' backpack as item
+ while findtype 'scroll of calling' backpack as item
     getlabel item label
-    @setvar! matched 0
-
-    foreach mastery in distro4_skillscroll_keywords
-            if mastery in label
-            lift item 1
-            drop Distro4 30 180 0
-            pause 500
-            @setvar! moved 1
-        endif
-    endfor
-
-    foreach mastery in distro3_skillscroll_keywords
-            if mastery in label
-            lift item 1
-            drop Distro3 30 180 0
-            pause 500
-            @setvar! matched 1
-        endif
-    endfor
-
-    if moved = 1
-        @ignore item
-    endif
-endwhile
+ if 'alchemy' in label
+    lift item 1
+    drop distro_4 15 50 0
+    getlabel backpack delaycheck
+ elseif 'inscription' in label
+    lift item 1
+    drop distro_4 25 50 0
+    getlabel backpack delaycheck
+ elseif 'necromancy' in label
+    lift item 1
+    drop distro_4 35 50 0
+    getlabel backpack delaycheck
+ elseif 'tailoring' in label
+    lift item 1
+    drop distro_4 45 50 0
+    getlabel backpack delaycheck  
+ elseif 'mastery' in label
+    lift item 1
+    drop distro_3 55 50 0
+    getlabel backpack delaycheck
+ endif
+ endwhile
 clearignore
 
 # Sorting Dyes, Cloth, Clothing
