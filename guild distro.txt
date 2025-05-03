@@ -2,9 +2,7 @@
 # Sorts items from backpack based upon item type into 5 distro chests
 # script by TheZeroDivide
 # script edited by LyzaLii
-# last update:  5/2/2025 - added functionality for  hued cloth and clothing
-# todo: shift to using hue lists to target different  hued items to specific chests
-
+# last update:  5/2/2025 - First Working System
 
 # Set variables if they dont exist
 if not varexist distro_1
@@ -111,15 +109,6 @@ pushlist distro_3_keywords "copper"
 pushlist distro_3_keywords "bronze"
 pushlist distro_3_keywords "gold"
 pushlist distro_3_keywords "fish"
-
-#Set Scrolls that should go in distro_3
-removelist distro3_skillscroll_keywords
-createlist distro3_skillscroll_keywords
-pushlist distro3_skillscroll_keywords "tailoring"
-pushlist distro3_skillscroll_keywords "inscription"
-pushlist distro3_skillscroll_keywords "alchemy"
-pushlist distro3_skillscroll_keywords "necromancy"
-
 
 #Set Hues of Dye, Cloth, or Clothing that should go to distro_2
 removelist Hues_Distro_2
@@ -270,29 +259,30 @@ clearignore
 overhead "Sorting Skill Scrolls..." 44
 clearignore
 
-while findtype 'scroll of calling' backpack as item
+ while findtype 'scroll of calling' backpack as item
     getlabel item label
-    @setvar! matched 0
-
-    foreach mastery in distro3_skillscroll_keywords
-            if mastery in label
-            lift item 1
-            drop Distro3 30 180 0
-            pause 500
-            @setvar! matched 1
-        endif
-    endfor
-
-    if matched = 0 and "scroll" in label
-        lift item 1
-        drop Distro4 30 180 0
-        pause 500
-    endif
-    
-    if moved = 1
-        @ignore item
-    endif
-endwhile
+ if 'alchemy' in label
+    lift item 1
+    drop distro_4 15 50 0
+    getlabel backpack delaycheck
+ elseif 'inscription' in label
+    lift item 1
+    drop distro_4 25 50 0
+    getlabel backpack delaycheck
+ elseif 'necromancy' in label
+    lift item 1
+    drop distro_4 35 50 0
+    getlabel backpack delaycheck
+ elseif 'tailoring' in label
+    lift item 1
+    drop distro_4 45 50 0
+    getlabel backpack delaycheck  
+ elseif 'mastery' in label
+    lift item 1
+    drop distro_3 55 50 0
+    getlabel backpack delaycheck
+ endif
+ endwhile
 clearignore
 
 # Sorting Dyes, Cloth, Clothing
