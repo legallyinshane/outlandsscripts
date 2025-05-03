@@ -1,8 +1,10 @@
 # Guild Distro Sorting Script
 # Sorts items from backpack based upon item type into 5 distro chests
 # script by TheZeroDivide
-# last update:  5/2/2025 - removed inline comments, update void core hue value, update lift values
-# todo:  boots/sandals/thighboots
+# script edited by LyzaLii
+# last update:  5/2/2025 - added functionality for  hued cloth and clothing
+# todo: shift to using hue lists to target different  hued items to specific chests
+
 
 # Set variables if they dont exist
 if not varexist distro_1
@@ -60,55 +62,55 @@ createlist coreHues_Distro_4
 
 
 # Add Cores that should go in distro_3
-# Air (2263), Blood (2087), Death (2155), Discipline (2490), Earth (2767), Fire (2635), Gadget (2669), Holy (2153), Lyric (2241), Madness (1060), Water (1788), War (2503)
-pushlist coreHues_Distro_3 2263
-pushlist coreHues_Distro_3 2087
-pushlist coreHues_Distro_3 2155
-pushlist coreHues_Distro_3 2490
-pushlist coreHues_Distro_3 2767
-pushlist coreHues_Distro_3 2635
-pushlist coreHues_Distro_3 2669
-pushlist coreHues_Distro_3 2153
-pushlist coreHues_Distro_3 2241
-pushlist coreHues_Distro_3 1060
-pushlist coreHues_Distro_3 1788
-pushlist coreHues_Distro_3 2503
+
+pushlist coreHues_Distro_3 2263 #Air
+pushlist coreHues_Distro_3 2087 #Blood
+pushlist coreHues_Distro_3 2155 #Death
+pushlist coreHues_Distro_3 2490 #Discipline
+pushlist coreHues_Distro_3 2767 #Earth
+pushlist coreHues_Distro_3 2635 #Fire
+pushlist coreHues_Distro_3 2669 #Gadget
+pushlist coreHues_Distro_3 2153 #Holy
+pushlist coreHues_Distro_3 2241 #Lyric
+pushlist coreHues_Distro_3 1060 #Madness
+pushlist coreHues_Distro_3 2592 #Water
+pushlist coreHues_Distro_3 2503 #War
 
 
 # Add Cores that should go in distro_4
-# Arcane (1560), Artisan (2096), Command (1782), Eldritch (2615), Fortune (2843), Frost (2234), Harvest (2086), Lightning (2650), Poison (2897), Shadow (1790), Void (2582)
-pushlist coreHues_Distro_4 1560
-pushlist coreHues_Distro_4 2096
-pushlist coreHues_Distro_4 1782
-pushlist coreHues_Distro_4 2615
-pushlist coreHues_Distro_4 2843
-pushlist coreHues_Distro_4 2234
-pushlist coreHues_Distro_4 2086
-pushlist coreHues_Distro_4 2650
-pushlist coreHues_Distro_4 2897
-pushlist coreHues_Distro_4 1790
-pushlist coreHues_Distro_4 2582
+
+pushlist coreHues_Distro_4 1560 #Arcane
+pushlist coreHues_Distro_4 2096 #Artisan
+pushlist coreHues_Distro_4 1428 #Command
+pushlist coreHues_Distro_4 2618 #Eldritch
+pushlist coreHues_Distro_4 2843 #Fortune
+pushlist coreHues_Distro_4 2234 #Frost
+pushlist coreHues_Distro_4 2208 #Harvest
+pushlist coreHues_Distro_4 2650 #Lightning
+pushlist coreHues_Distro_4 2897 #Poison
+pushlist coreHues_Distro_4 1790 #Shadow
+pushlist coreHues_Distro_4 2582 #Void
 
 
-# Set Map Keywords that should do in distro_3
-removelist distro_3_keywords
-createlist distro_3_keywords
-pushlist distro_3_keywords "drawn"
-pushlist distro_3_keywords "skinning"
-pushlist distro_3_keywords "ore"
-pushlist distro_3_keywords "lumber"
-
-#Set Map Keywords that should go in distro_4
+# Set Map Keywords that should do in distro_4
 removelist distro_4_keywords
 createlist distro_4_keywords
-pushlist distro_4_keywords "plainly"
-pushlist distro_4_keywords "expertly"
-pushlist distro_4_keywords "dull"
-pushlist distro_4_keywords "shadow"
-pushlist distro_4_keywords "copper"
-pushlist distro_4_keywords "bronze"
-pushlist distro_4_keywords "gold"
-pushlist distro_4_keywords "fish"
+pushlist distro_4_keywords "drawn"
+pushlist distro_4_keywords "skinning"
+pushlist distro_4_keywords "ore"
+pushlist distro_4_keywords "lumber"
+
+#Set Map Keywords that should go in distro_3
+removelist distro_3_keywords
+createlist distro_3_keywords
+pushlist distro_3_keywords "1"
+pushlist distro_3_keywords "2"
+pushlist distro_3_keywords "dull"
+pushlist distro_3_keywords "shadow"
+pushlist distro_3_keywords "copper"
+pushlist distro_3_keywords "bronze"
+pushlist distro_3_keywords "gold"
+pushlist distro_3_keywords "fish"
 
 #Set Scrolls that should go in distro_3
 removelist distro3_skillscroll_keywords
@@ -118,95 +120,103 @@ pushlist distro3_skillscroll_keywords "inscription"
 pushlist distro3_skillscroll_keywords "alchemy"
 pushlist distro3_skillscroll_keywords "necromancy"
 
-#Set Special Hues that should go to distro_4
-removelist special_Hues_Distro_4
-createlist special_Hues_Distro_4
-pushlist special_Hues_Distro_4 "4124"
-pushlist special_Hues_Distro_4 "4125"
-pushlist special_Hues_Distro_4 "4126"
-pushlist special_Hues_Distro_4 "4127"
-pushlist special_Hues_Distro_4 "4128"
-pushlist special_Hues_Distro_4 "4129"
-pushlist special_Hues_Distro_4 "4130"
-pushlist special_Hues_Distro_4 "4131"
-pushlist special_Hues_Distro_4 "4132"
-pushlist special_Hues_Distro_4 "4133"
-pushlist special_Hues_Distro_4 "4134"
-pushlist special_Hues_Distro_4 "4135"
-pushlist special_Hues_Distro_4 "4136"
-pushlist special_Hues_Distro_4 "4137"
-pushlist special_Hues_Distro_4 "4138"
-pushlist special_Hues_Distro_4 "4139"
-pushlist special_Hues_Distro_4 "4140"
-pushlist special_Hues_Distro_4 "4141"
-pushlist special_Hues_Distro_4 "2227"
-pushlist special_Hues_Distro_4 "1495"
-pushlist special_Hues_Distro_4 "1496"
-pushlist special_Hues_Distro_4 "1382"
-pushlist special_Hues_Distro_4 "1494"
-pushlist special_Hues_Distro_4 "2246"
-pushlist special_Hues_Distro_4 "1381"
-pushlist special_Hues_Distro_4 "2255"
-pushlist special_Hues_Distro_4 "2877"
-pushlist special_Hues_Distro_4 "1384"
-pushlist special_Hues_Distro_4 "1462"
-pushlist special_Hues_Distro_4 "2173"
-pushlist special_Hues_Distro_4 "2903"
-pushlist special_Hues_Distro_4 "2808"
-pushlist special_Hues_Distro_4 "1952"
-pushlist special_Hues_Distro_4 "1590"
-pushlist special_Hues_Distro_4 "2380"
-pushlist special_Hues_Distro_4 "1989"
-pushlist special_Hues_Distro_4 "1990"
-pushlist special_Hues_Distro_4 "2653"
-pushlist special_Hues_Distro_4 "2398"
-pushlist special_Hues_Distro_4 "2828"
-pushlist special_Hues_Distro_4 "2845"
-pushlist special_Hues_Distro_4 "2827"
-pushlist special_Hues_Distro_4 "2826"
-pushlist special_Hues_Distro_4 "2379"
-pushlist special_Hues_Distro_4 "1484"
-pushlist special_Hues_Distro_4 "2898"
-pushlist special_Hues_Distro_4 "1489"
-pushlist special_Hues_Distro_4 "1995"
-pushlist special_Hues_Distro_4 "2167"
-pushlist special_Hues_Distro_4 "2928"
-pushlist special_Hues_Distro_4 "1470"
-pushlist special_Hues_Distro_4 "1467"
-pushlist special_Hues_Distro_4 "2807"
-pushlist special_Hues_Distro_4 "1939"
-pushlist special_Hues_Distro_4 "1465"
-pushlist special_Hues_Distro_4 "2174"
-pushlist special_Hues_Distro_4 "2804"
-pushlist special_Hues_Distro_4 "2226"
-pushlist special_Hues_Distro_4 "2801"
-pushlist special_Hues_Distro_4 "1156"
-pushlist special_Hues_Distro_4 "2230"
-pushlist special_Hues_Distro_4 "1589"
-pushlist special_Hues_Distro_4 "1779"
-pushlist special_Hues_Distro_4 "1909"
-pushlist special_Hues_Distro_4 "2091"
-pushlist special_Hues_Distro_4 "2099"
-pushlist special_Hues_Distro_4 "2085"
-pushlist special_Hues_Distro_4 "2092"
-pushlist special_Hues_Distro_4 "2089"
-pushlist special_Hues_Distro_4 "2796"
-pushlist special_Hues_Distro_4 "2338"
-pushlist special_Hues_Distro_4 "2093"
-pushlist special_Hues_Distro_4 "2659"
-pushlist special_Hues_Distro_4 "2841"
-pushlist special_Hues_Distro_4 "1182"
-pushlist special_Hues_Distro_4 "1183"
-pushlist special_Hues_Distro_4 "1500"
 
+#Set Hues of Dye, Cloth, or Clothing that should go to distro_2
+removelist Hues_Distro_2
+createlist Hues_Distro_2
+pushlist Hues_Distro_2 1779 #Aegis
+pushlist Hues_Distro_2 1909 #Inferno
+pushlist Hues_Distro_2 2091 #Ossuary
+pushlist Hues_Distro_2 2099 #DarkmireTemple
+pushlist Hues_Distro_2 2085 #Pulma
+pushlist Hues_Distro_2 2092 #TheMausoleum
+pushlist Hues_Distro_2 2089 #MountPetram
+pushlist Hues_Distro_2 2796 #Nusero
+pushlist Hues_Distro_2 2338 #Cavernam
+pushlist Hues_Distro_2 2093 #ShadowspireCathedral
+pushlist Hues_Distro_2 2659 #Time
+pushlist Hues_Distro_2 2841 #KraulHive
+pushlist Hues_Distro_2 1182 #Wilderness
+pushlist Hues_Distro_2 1183 #Ocean
+pushlist Hues_Distro_2 1500 #Netherzone
 
+#Set Hues of Dye, Cloth, or Clothing that should go to distro_3
+removelist Hues_Distro_3
+createlist Hues_Distro_3
+pushlist Hues_Distro_3 1467 #DarkCoffee
+pushlist Hues_Distro_3 2807 #DarkRust
+pushlist Hues_Distro_3 1939 #DarkCrimson
+pushlist Hues_Distro_3 1465 #DarkBlood
+pushlist Hues_Distro_3 2174 #DarkSalmon
+pushlist Hues_Distro_3 2804 #DarkForest
+pushlist Hues_Distro_3 2226 #DarkPeacock
+pushlist Hues_Distro_3 2801 #DarkDenim
+pushlist Hues_Distro_3 1156 #DarkBerry
+pushlist Hues_Distro_3 2230 #DarkJam
+pushlist Hues_Distro_3 1589 #DarkChocolate
+
+#Set Hues of Dye, Cloth, or Clothing that should go to distro_4
+removelist Hues_Distro_4
+createlist Hues_Distro_4
+pushlist Hues_Distro_4 4124 #LustrousLavender
+pushlist Hues_Distro_4 4125 #LustrousCarmine
+pushlist Hues_Distro_4 4126 #LustrousSeagrass
+pushlist Hues_Distro_4 4127 #LustrousGrass
+pushlist Hues_Distro_4 4128 #LustrousBottleglass
+pushlist Hues_Distro_4 4129 #LustrousStar
+pushlist Hues_Distro_4 4130 #LustrousDream
+pushlist Hues_Distro_4 4131 #LustrousEcru
+pushlist Hues_Distro_4 4132 #LustrousChartreuse
+pushlist Hues_Distro_4 4133 #LustrousCaramel
+pushlist Hues_Distro_4 4134 #LustrousSteel
+pushlist Hues_Distro_4 4135 #LustrousSlime
+pushlist Hues_Distro_4 4136 #LustrousFlesh
+pushlist Hues_Distro_4 4137 #LustrousOpal
+pushlist Hues_Distro_4 4138 #LustrousAsh
+pushlist Hues_Distro_4 4139 #LustrousJade
+pushlist Hues_Distro_4 4140 #LustrousBone
+pushlist Hues_Distro_4 4141 #LustrousDewdrop
+pushlist Hues_Distro_4 2227 #PowderRuby
+pushlist Hues_Distro_4 1495 #PowderCoral
+pushlist Hues_Distro_4 1496 #PowderPeach
+pushlist Hues_Distro_4 1382 #PowderLemon
+pushlist Hues_Distro_4 1494 #PowderPistachio
+pushlist Hues_Distro_4 2246 #PowderSeafoam
+pushlist Hues_Distro_4 1381 #PowderSpring
+pushlist Hues_Distro_4 2255 #PowderLapis
+pushlist Hues_Distro_4 2877 #PowderCyan
+pushlist Hues_Distro_4 1384 #PowderAzure
+pushlist Hues_Distro_4 1462 #PowderOrchid
+pushlist Hues_Distro_4 2173 #PowderIris
+pushlist Hues_Distro_4 2903 #PowderCloud
+pushlist Hues_Distro_4 2808 #PowderBlush
+pushlist Hues_Distro_4 1952 #PowderBubblegum
+pushlist Hues_Distro_4 1590 #PowderSnow
+pushlist Hues_Distro_4 2380 #MetallicCherry
+pushlist Hues_Distro_4 1989 #MetallicOrange
+pushlist Hues_Distro_4 1990 #MetallicAmber
+pushlist Hues_Distro_4 2653 #MetallicLemonLime
+pushlist Hues_Distro_4 2398 #MetallicOlive
+pushlist Hues_Distro_4 2828 #MetallicPickle
+pushlist Hues_Distro_4 2845 #MetallicJuniper
+pushlist Hues_Distro_4 2827 #MetallicMint
+pushlist Hues_Distro_4 2826 #MetallicSky
+pushlist Hues_Distro_4 2379 #MetallicSapphire
+pushlist Hues_Distro_4 1484 #MetallicCerulean
+pushlist Hues_Distro_4 2898 #MetallicEggplant
+pushlist Hues_Distro_4 1489 #MetallicRaspberry
+pushlist Hues_Distro_4 1995 #MetallicWine
+pushlist Hues_Distro_4 2167 #MetallicPewter
+pushlist Hues_Distro_4 2928 #MetallicChalk
+pushlist Hues_Distro_4 1470 #MetallicUmber
 
 # Sorting Cores
 overhead "Sorting Cores..."
+
 foreach hueVal in coreHues_Distro_3
     while findtype 'aspect core' backpack hueVal as item
         lift item 1
-        drop distro_3 -1 -1 0
+        drop distro_3
         getlabel backpack delaycheck
         @ignore item
     endwhile
@@ -215,7 +225,7 @@ endfor
 foreach hueVal in coreHues_Distro_4
     while findtype 'aspect core' backpack hueVal as item
         lift item 1
-    drop distro_4 -1 -1 0
+        drop distro_4
         getlabel backpack delaycheck
         @ignore item
     endwhile
@@ -230,7 +240,7 @@ while findtype 'map' backpack as item
     getlabel item label
     @setvar! moved 0
 
-    foreach key in distro3_keywords
+    foreach key in distro_3_keywords
         if key in label
             lift item 1
             drop distro_3 60 90 0
@@ -241,7 +251,7 @@ while findtype 'map' backpack as item
     endfor
 
     if moved = 0
-        foreach key in distro4_keywords
+        foreach key in distro_4_keywords
             if key in label
                 lift item 1
                 drop distro_4 60 90 0
@@ -281,55 +291,156 @@ while findtype 'scroll of calling' backpack as item
         drop Distro4 30 180 0
         pause 500
     endif
-    @ignore item
-endwhile
-clearignore
-
-# Sorting Dyes (bottle_) into Distro chests
-overhead "Sorting Dyes..." 44
-clearignore
-
-while findtype 'bottle_' backpack as dye
-    getlabel dye label
-    @setvar! moved 0
-
-    # Check if special hue → distro_4
-    foreach hue in special_Hues_Distro_4
-        if hue in label
-            lift dye 1
-            drop distro_4 60 90 0
-            getlabel backpack delaycheck
-            @setvar! moved 1
-            break
-        endif
-    endfor
-
-    # If not special, sort by type name
-    if moved = 0
-        if 'carpet' in label or 'runebook' in label
-            lift dye 1
-            drop distro_2 -1 -1 0
-        elseif 'furniture' in label or 'mount' in label or 'chain' in label or 'backpack' in label or 'accessory' in label or 'headware' in label or 'hair' in label or 'facial hair' in label
-            lift dye 1
-            drop distro_3 -1 -1 0
-        endif
-        getlabel backpack delaycheck
+    
+    if moved = 1
+        @ignore item
     endif
-
-    @ignore dye
 endwhile
-
 clearignore
 
+# Sorting Dyes, Cloth, Clothing
+overhead "Sorting Dyes, Cloth, Clothing..."
 
+foreach hueVal in Hues_Distro_2
+    while findtype 'bottle' backpack hueVal as item
+        lift item 1
+        drop distro_2 120 60 0
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'folded cloth' backpack hueVal as item
+        lift item 1
+        drop distro_2
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'sandals' backpack hueVal as item
+        lift item 1
+        drop distro_2
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'boots' backpack hueVal as item
+        lift item 1
+        drop distro_2
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'shoes' backpack hueVal as item
+        lift item 1
+        drop distro_2
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'thigh boots' backpack hueVal as item
+        lift item 1
+        drop distro_2
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+endfor
+
+foreach hueVal in Hues_Distro_3
+    while findtype 'bottle' backpack hueVal as item
+        lift item 1
+        drop distro_3 120 60 0
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'folded cloth' backpack hueVal as item
+        lift item 1
+        drop distro_3
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'sandals' backpack hueVal as item
+        lift item 1
+        drop distro_3
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'boots' backpack hueVal as item
+        lift item 1
+        drop distro_3
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'shoes' backpack hueVal as item
+        lift item 1
+        drop distro_3
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'thigh boots' backpack hueVal as item
+        lift item 1
+        drop distro_3
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+endfor
+
+foreach hueVal in Hues_Distro_4
+    while findtype 'bottle' backpack hueVal as item
+        lift item 1
+        drop distro_4 120 60 0
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'folded cloth' backpack hueVal as item
+        lift item 1
+        drop distro_4
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'sandals' backpack hueVal as item
+        lift item 1
+        drop distro_4
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'boots' backpack hueVal as item
+        lift item 1
+        drop distro_4
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'shoes' backpack hueVal as item
+        lift item 1
+        drop distro_4
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+    
+    while findtype 'thigh boots' backpack hueVal as item
+        lift item 1
+        drop distro_4
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
+endfor
+clearignore
 
 # Distro 1
 overhead "Sorting Items to First Distro Chest" 44
 # Add Item Ids to the findtype list
 while findtype 37181|3821|29030|3827|24434|43206 backpack as item
     lift item 60000
-  drop distro_1 -1 -1 0
-  getlabel backpack delaycheck
+    drop distro_1 -1 -1 0
+    getlabel backpack delaycheck
 endwhile
 
 # Distro 2
@@ -337,8 +448,8 @@ overhead "Sorting Items to Second Distro Chest" 44
 # Add Item Ids to the findtype list
 while findtype 22326|17087|576|17686|4026|5981|29036|3838|27611 backpack as item
     lift item 1
-  drop distro_2 -1 -1 0
-  getlabel backpack delaycheck
+    drop distro_2
+     getlabel backpack delaycheck
 endwhile
 
 # Distro 3
@@ -346,8 +457,8 @@ overhead "Sorting Items to Third Distro Chest" 44
 # Add Item Ids to the findtype list
 while findtype 11858|5981|29025|15296|3839|3843|25359|3842 backpack as item
     lift item 1
-  drop distro_3 -1 -1 0
-  getlabel backpack delaycheck
+    drop distro_3
+    getlabel backpack delaycheck
 endwhile
 
 # Distro 4
@@ -355,8 +466,8 @@ overhead "Sorting Items to Fourth Distro Chest" 44
 # Add Item Ids to the findtype list
 while findtype 4025 backpack as item
     lift item 1
-  drop distro_4 -1 -1 0
-  getlabel backpack delaycheck
+    drop distro_4
+    getlabel backpack delaycheck
 endwhile
 
 # Distro 5
