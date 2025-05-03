@@ -112,13 +112,13 @@ pushlist distro_3_keywords "bronze"
 pushlist distro_3_keywords "gold"
 pushlist distro_3_keywords "fish"
 
-#Set Scrolls that should go in distro_3
-removelist distro3_skillscroll_keywords
-createlist distro3_skillscroll_keywords
-pushlist distro3_skillscroll_keywords "tailoring"
-pushlist distro3_skillscroll_keywords "inscription"
-pushlist distro3_skillscroll_keywords "alchemy"
-pushlist distro3_skillscroll_keywords "necromancy"
+#Set Scrolls that should go in distro_4
+removelist distro4_skillscroll_keywords
+createlist distro4_skillscroll_keywords
+pushlist distro4_skillscroll_keywords "tailoring"
+pushlist distro4_skillscroll_keywords "inscription"
+pushlist distro4_skillscroll_keywords "alchemy"
+pushlist distro4_skillscroll_keywords "necromancy"
 
 
 #Set Hues of Dye, Cloth, or Clothing that should go to distro_2
@@ -274,10 +274,10 @@ while findtype 'scroll of calling' backpack as item
     getlabel item label
     @setvar! matched 0
 
-    foreach mastery in distro3_skillscroll_keywords
+    foreach mastery in distro4_skillscroll_keywords
             if mastery in label
             lift item 1
-            drop Distro3 30 180 0
+            drop Distro4 30 180 0
             pause 500
             @setvar! matched 1
         endif
@@ -285,7 +285,7 @@ while findtype 'scroll of calling' backpack as item
 
     if matched = 0 and "scroll" in label
         lift item 1
-        drop Distro4 30 180 0
+        drop Distro3 30 180 0
         pause 500
     endif
     
