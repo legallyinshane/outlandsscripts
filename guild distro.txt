@@ -3,7 +3,6 @@
 # script by TheZeroDivide
 # last update:  5/2/2025 - removed inline comments, update void core hue value, update lift values
 # todo:  boots/sandals/thighboots
-#testupdate
 
 # Set variables if they dont exist
 if not varexist distro_1
