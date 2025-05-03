@@ -120,6 +120,56 @@ pushlist distro4_skillscroll_keywords "inscription"
 pushlist distro4_skillscroll_keywords "alchemy"
 pushlist distro4_skillscroll_keywords "necromancy"
 
+#Set Scrolls that should go in distro_3
+removelist distro3_skillscroll_keywords
+createlist distro3_skillscroll_keywords
+pushlist distro3_skillscroll_keywords "anatomy"
+pushlist distro3_skillscroll_keywords "archery"
+pushlist distro3_skillscroll_keywords "fencing"
+pushlist distro3_skillscroll_keywords "mace fighting"
+pushlist distro3_skillscroll_keywords "parrying"
+pushlist distro3_skillscroll_keywords "swordsmanship"
+pushlist distro3_skillscroll_keywords "tactics"
+pushlist distro3_skillscroll_keywords "wrestling"
+pushlist distro3_skillscroll_keywords "magery"
+pushlist distro3_skillscroll_keywords "evaluating intelligence"
+pushlist distro3_skillscroll_keywords "meditation"
+pushlist distro3_skillscroll_keywords "resisting spells"
+pushlist distro3_skillscroll_keywords "spirit speak"
+pushlist distro3_skillscroll_keywords "chivalry"
+pushlist distro3_skillscroll_keywords "arcane"
+pushlist distro3_skillscroll_keywords "musicianship"
+pushlist distro3_skillscroll_keywords "discordance"
+pushlist distro3_skillscroll_keywords "peacemaking"
+pushlist distro3_skillscroll_keywords "provocation"
+pushlist distro3_skillscroll_keywords "animal lore"
+pushlist distro3_skillscroll_keywords "animal taming"
+pushlist distro3_skillscroll_keywords "herding"
+pushlist distro3_skillscroll_keywords "veterinary"
+pushlist distro3_skillscroll_keywords "tracking"
+pushlist distro3_skillscroll_keywords "camping"
+pushlist distro3_skillscroll_keywords "fishing"
+pushlist distro3_skillscroll_keywords "blacksmithy"
+pushlist distro3_skillscroll_keywords "carpentry"
+pushlist distro3_skillscroll_keywords "cooking"
+pushlist distro3_skillscroll_keywords "tinkering"
+pushlist distro3_skillscroll_keywords "mining"
+pushlist distro3_skillscroll_keywords "lumberjacking"
+pushlist distro3_skillscroll_keywords "hiding"
+pushlist distro3_skillscroll_keywords "stealth"
+pushlist distro3_skillscroll_keywords "snooping"
+pushlist distro3_skillscroll_keywords "stealing"
+pushlist distro3_skillscroll_keywords "lockpicking"
+pushlist distro3_skillscroll_keywords "detecting hidden"
+pushlist distro3_skillscroll_keywords "poisoning"
+pushlist distro3_skillscroll_keywords "arms lore"
+pushlist distro3_skillscroll_keywords "begging"
+pushlist distro3_skillscroll_keywords "cartography"
+pushlist distro3_skillscroll_keywords "forensic evaluation"
+pushlist distro3_skillscroll_keywords "item identification"
+pushlist distro3_skillscroll_keywords "taste identification"
+pushlist distro3_skillscroll_keywords "focus"
+
 
 #Set Hues of Dye, Cloth, or Clothing that should go to distro_2
 removelist Hues_Distro_2
@@ -279,16 +329,19 @@ while findtype 'scroll of calling' backpack as item
             lift item 1
             drop Distro4 30 180 0
             pause 500
+            @setvar! moved 1
+        endif
+    endfor
+
+    foreach mastery in distro3_skillscroll_keywords
+            if mastery in label
+            lift item 1
+            drop Distro3 30 180 0
+            pause 500
             @setvar! matched 1
         endif
     endfor
 
-    if matched = 0 and "scroll" in label
-        lift item 1
-        drop Distro3 30 180 0
-        pause 500
-    endif
-    
     if moved = 1
         @ignore item
     endif
