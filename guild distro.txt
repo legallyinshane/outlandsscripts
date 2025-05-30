@@ -2,7 +2,7 @@
 # Sorts items from backpack based upon item type into 5 distro chests
 # script by TheZeroDivide
 # script edited by LyzaLii
-# last update:  5/2/2025 - First Working System
+# last update:  5/30/2025 - Update: Added sorting of Skill Orbs and fixed Shadow Core Issue
 
 # Set variables if they dont exist
 if not varexist distro_1
@@ -86,7 +86,7 @@ pushlist coreHues_Distro_4 2234 #Frost
 pushlist coreHues_Distro_4 2208 #Harvest
 pushlist coreHues_Distro_4 2650 #Lightning
 pushlist coreHues_Distro_4 2897 #Poison
-pushlist coreHues_Distro_4 1790 #Shadow
+pushlist coreHues_Distro_4 1757|1790 #Shadow
 pushlist coreHues_Distro_4 2582 #Void
 
 
@@ -420,6 +420,13 @@ foreach hueVal in Hues_Distro_4
     endwhile
 endfor
 clearignore
+
+    while findtype 'void orb' backpack as item
+        lift item 1
+        drop distro_3
+        getlabel backpack delaycheck
+        @ignore item
+    endwhile
 
 # Distro 1
 overhead "Sorting Items to First Distro Chest" 44
