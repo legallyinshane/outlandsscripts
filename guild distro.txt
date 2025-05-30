@@ -86,7 +86,8 @@ pushlist coreHues_Distro_4 2234 #Frost
 pushlist coreHues_Distro_4 2208 #Harvest
 pushlist coreHues_Distro_4 2650 #Lightning
 pushlist coreHues_Distro_4 2897 #Poison
-pushlist coreHues_Distro_4 1757|1790 #Shadow
+pushlist coreHues_Distro_4 1757 #Shadow
+pushlist coreHues_Distro_4 1790 #Shadow
 pushlist coreHues_Distro_4 2582 #Void
 
 
