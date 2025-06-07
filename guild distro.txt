@@ -73,7 +73,7 @@ pushlist coreHues_Distro_3 2263 #Air
 pushlist coreHues_Distro_3 2155 #Death
 pushlist coreHues_Distro_3 2490 #Discipline
 pushlist coreHues_Distro_3 2767 #Earth
-pushlist coreHues_Distro_4 2618 #Eldritch
+pushlist coreHues_Distro_3 2618 #Eldritch
 pushlist coreHues_Distro_3 2635 #Fire
 pushlist coreHues_Distro_3 2669 #Gadget
 pushlist coreHues_Distro_3 2153 #Holy
@@ -86,7 +86,7 @@ pushlist coreHues_Distro_3 2503 #War
 
 pushlist coreHues_Distro_4 1560 #Arcane
 pushlist coreHues_Distro_4 2096 #Artisan
-pushlist coreHues_Distro_3 2087 #Blood
+pushlist coreHues_Distro_4 2087 #Blood
 pushlist coreHues_Distro_4 1428 #Command
 pushlist coreHues_Distro_4 2843 #Fortune
 pushlist coreHues_Distro_4 2234 #Frost
