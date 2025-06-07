@@ -70,10 +70,10 @@ createlist coreHues_Distro_4
 # Add Cores that should go in distro_3
 
 pushlist coreHues_Distro_3 2263 #Air
-pushlist coreHues_Distro_3 2087 #Blood
 pushlist coreHues_Distro_3 2155 #Death
 pushlist coreHues_Distro_3 2490 #Discipline
 pushlist coreHues_Distro_3 2767 #Earth
+pushlist coreHues_Distro_3 2618 #Eldritch
 pushlist coreHues_Distro_3 2635 #Fire
 pushlist coreHues_Distro_3 2669 #Gadget
 pushlist coreHues_Distro_3 2153 #Holy
@@ -82,13 +82,12 @@ pushlist coreHues_Distro_3 1060 #Madness
 pushlist coreHues_Distro_3 2592 #Water
 pushlist coreHues_Distro_3 2503 #War
 
-
 # Add Cores that should go in distro_4
 
 pushlist coreHues_Distro_4 1560 #Arcane
 pushlist coreHues_Distro_4 2096 #Artisan
+pushlist coreHues_Distro_4 2087 #Blood
 pushlist coreHues_Distro_4 1428 #Command
-pushlist coreHues_Distro_4 2618 #Eldritch
 pushlist coreHues_Distro_4 2843 #Fortune
 pushlist coreHues_Distro_4 2234 #Frost
 pushlist coreHues_Distro_4 2208 #Harvest
@@ -440,7 +439,7 @@ clearignore
 # Distro 1
 overhead "Sorting Items to First Distro Chest" 44
 # Add Item Ids to the findtype list
-while findtype 37181|3821|29030|3827|24434|43206 0x4F9D4339 as item
+while findtype 29030|3827 0x4F9D4339 as item
     lift item 0x4F9D4339 60000
     drop distro_1 -1 -1 0
     getlabel 0x4F9D4339 delaycheck
@@ -485,7 +484,7 @@ endwhile
 # Gold
 overhead "Sorting Items to Gold Chest" 44
 # Add Item Ids to the findtype list
-while findtype 37181|3821|29030|3827|24434|43206 0x4F9D4339 as item
+while findtype 37181|3821|24434|43206 0x4F9D4339 as item
     lift item 0x4F9D4339 60000
     drop distro_1 -1 -1 0
     getlabel 0x4F9D4339 delaycheck
