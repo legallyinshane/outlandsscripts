@@ -440,11 +440,6 @@ clearignore
 # Distro 1
 overhead "Sorting Items to First Distro Chest" 44
 # Add Item Ids to the findtype list
-while findtype 37181|3821|29030|3827|24434|43206 0x4F9D4339 as item
-    lift item 0x4F9D4339 60000
-    drop distro_1 -1 -1 0
-    getlabel 0x4F9D4339 delaycheck
-endwhile
 
 # Distro 2
 overhead "Sorting Items to Second Distro Chest" 44
