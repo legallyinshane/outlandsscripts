@@ -1,8 +1,8 @@
 # Guild Distro Sorting Script
-# Sorts items from 0x4F9D4339 based upon item type into 5 distro chests
+# Sorts items from 0x4F9D4339 based upon item type into 4 Distro Chests, an Extras Chest, and Gold Chest
 # script by TheZeroDivide
 # script edited by LyzaLii
-# last update:  6/7/2025 - Update: Moved to a single chest system for  gathering loot, and separating into proper distro chests
+# last update:  6/8/2025 - Update: Adjusted Amounts moved for Extras and Gold to bulk rather than 1 at a time, added Food Stuffs to Extras
 
 # Set variables if they dont exist
 if not varexist distro_1
@@ -212,7 +212,7 @@ overhead "Sorting Cores..."
 
 foreach hueVal in coreHues_Distro_3
     while findtype 'aspect core' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_3
         getlabel 0x4F9D4339 delaycheck
         @ignore item
@@ -221,7 +221,7 @@ endfor
 
 foreach hueVal in coreHues_Distro_4
     while findtype 'aspect core' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_4
         getlabel 0x4F9D4339 delaycheck
         @ignore item
@@ -239,7 +239,7 @@ while findtype 'map' 0x4F9D4339 as item
 
     foreach key in distro_3_keywords
         if key in label
-            lift item 0x4F9D4339 1
+            lift item 1
             drop distro_3 60 90 0
             getlabel 0x4F9D4339 delaycheck
             @setvar! moved 1
@@ -249,7 +249,7 @@ while findtype 'map' 0x4F9D4339 as item
     if moved = 0
         foreach key in distro_4_keywords
             if key in label
-                lift item 0x4F9D4339 1
+                lift item 1
                 drop distro_4 60 90 0
                 getlabel 0x4F9D4339 delaycheck
                 @setvar! moved 1
@@ -270,23 +270,23 @@ clearignore
  while findtype 'scroll of calling' 0x4F9D4339 as item
     getlabel item label
  if 'alchemy' in label
-    lift item 0x4F9D4339 1
+    lift item 1
     drop distro_4 15 50 0
     getlabel 0x4F9D4339 delaycheck
  elseif 'inscription' in label
-    lift item 0x4F9D4339 1
+    lift item 1
     drop distro_4 25 50 0
     getlabel 0x4F9D4339 delaycheck
  elseif 'chivalry' in label
-    lift item 0x4F9D4339 1
+    lift item 1
     drop distro_4 35 50 0
     getlabel 0x4F9D4339 delaycheck
  elseif 'tailoring' in label
-    lift item 0x4F9D4339 1
+    lift item 1
     drop distro_4 45 50 0
     getlabel 0x4F9D4339 delaycheck  
  elseif 'mastery' in label
-    lift item 0x4F9D4339 1
+    lift item 1
     drop distro_3 55 50 0
     getlabel 0x4F9D4339 delaycheck
  endif
@@ -298,42 +298,42 @@ overhead "Sorting Dyes, Cloth, Clothing..."
 
 foreach hueVal in Hues_Distro_2
     while findtype 'bottle' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_2 120 60 0
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'folded cloth' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_2
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'sandals' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_2
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'boots' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_2
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'shoes' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_2
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'thigh boots' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_2
         getlabel 0x4F9D4339 delaycheck
         @ignore item
@@ -342,42 +342,42 @@ endfor
 
 foreach hueVal in Hues_Distro_3
     while findtype 'bottle' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_3 120 60 0
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'folded cloth' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_3
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'sandals' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_3
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'boots' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_3
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'shoes' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_3
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'thigh boots' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_3
         getlabel 0x4F9D4339 delaycheck
         @ignore item
@@ -386,42 +386,42 @@ endfor
 
 foreach hueVal in Hues_Distro_4
     while findtype 'bottle' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_4 120 60 0
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'folded cloth' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_4
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'sandals' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_4
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'boots' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_4
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'shoes' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_4
         getlabel 0x4F9D4339 delaycheck
         @ignore item
     endwhile
     
     while findtype 'thigh boots' 0x4F9D4339 hueVal as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_4
         getlabel 0x4F9D4339 delaycheck
         @ignore item
@@ -430,7 +430,7 @@ endfor
 clearignore
 
     while findtype 'void orb' 0x4F9D4339 as item
-        lift item 0x4F9D4339 1
+        lift item 1
         drop distro_3
         getlabel 0x4F9D4339 delaycheck
         @ignore item
@@ -440,16 +440,16 @@ clearignore
 overhead "Sorting Out Arcane Scrolls and Plant Chemicals" 44
 # Add Item Ids to the findtype list
 while findtype 29030|3827 0x4F9D4339 as item
-    lift item 0x4F9D4339 60000
-    drop distro_1
+    lift item 60000
+    drop distro_1 -1 -1 0
     getlabel 0x4F9D4339 delaycheck
 endwhile
 
 # Distro 2
-overhead "Sorting Distils, Phylacteries, MCD's, Low Tier Cloth, Clothing, and Dyes" 44
+overhead "Sorting Distils, Phylacteries, MCDs, Low Tier Cloth, Clothing, and Dyes" 44
 # Add Item Ids to the findtype list
 while findtype 17087|576|17686|4026|5981|29036|3838 0x4F9D4339 as item
-    lift item 0x4F9D4339 1
+    lift item 1
     drop distro_2
      getlabel 0x4F9D4339 delaycheck
 endwhile
@@ -458,7 +458,7 @@ endwhile
 overhead "Sorting Basic Skill Scrolls, Skill Orbs, Low Tier Cores, Medium Tier Cloth, Clothing, and Dyes" 44
 # Add Item Ids to the findtype list
 while findtype 11858|5981|29025|15296|3839|3843|25359|3842 0x4F9D4339 as item
-    lift item 0x4F9D4339 1
+    lift item 1
     drop distro_3
     getlabel 0x4F9D4339 delaycheck
 endwhile
@@ -467,7 +467,7 @@ endwhile
 overhead "Sorting High Tier Skill Scrolls, Cores, Cloth, Clothing, and Dyes" 44
 # Add Item Ids to the findtype list
 while findtype 4025 0x4F9D4339 as item
-    lift item 0x4F9D4339 1
+    lift item 1
     drop distro_4
     getlabel 0x4F9D4339 delaycheck
 endwhile
@@ -476,16 +476,16 @@ endwhile
 overhead "Sorting Gems, Leather, and Food Stuffs" 44
 # Add Item Ids to the findtype list
 while findtype 3861|3885|3877|3862|3859|3865|3856|3873|3878|4225|39889|39891|39892|39896|39897|39898|39905|39909|39911|39912|39916|39917|39918|51098|22326|27611|7711|2496|2515|5641|2545|2422 0x4F9D4339 as item
-    lift item 0x4F9D4339 60000
+    lift item 60000
     drop Extra
     getlabel 0x4F9D4339 delaycheck
 endwhile
 
 # Gold
-overhead "Sorting Gold, Survival Gear, RM's, and Links" 44
+overhead "Sorting Gold, Survival Gear, RMs, and Links" 44
 # Add Item Ids to the findtype list
 while findtype 37181|3821|24434|43206 0x4F9D4339 as item
-    lift item 0x4F9D4339 60000
+    lift item 60000
     drop Gold
     getlabel 0x4F9D4339 delaycheck
 endwhile
