@@ -57,7 +57,7 @@ getlabel Gold desc
         stop
     endif
 
-overhead "Starting item sort to distro chests" 65
+overhead "Starting Item Sort!" 65
 clearignore
 
 #Create lists to sort cores into
@@ -437,25 +437,25 @@ clearignore
     endwhile
 
 # Distro 1
-overhead "Sorting Items to First Distro Chest" 44
+overhead "Sorting Out Arcane Scrolls and Plant Chemicals" 44
 # Add Item Ids to the findtype list
 while findtype 29030|3827 0x4F9D4339 as item
     lift item 0x4F9D4339 60000
-    drop distro_1 -1 -1 0
+    drop distro_1
     getlabel 0x4F9D4339 delaycheck
 endwhile
 
 # Distro 2
-overhead "Sorting Items to Second Distro Chest" 44
+overhead "Sorting Distils, Phylacteries, MCD's, Low Tier Cloth, Clothing, and Dyes" 44
 # Add Item Ids to the findtype list
-while findtype 17087|576|17686|4026|5981|29036|3838|27611 0x4F9D4339 as item
+while findtype 17087|576|17686|4026|5981|29036|3838 0x4F9D4339 as item
     lift item 0x4F9D4339 1
     drop distro_2
      getlabel 0x4F9D4339 delaycheck
 endwhile
 
 # Distro 3
-overhead "Sorting Items to Third Distro Chest" 44
+overhead "Sorting Basic Skill Scrolls, Skill Orbs, Low Tier Cores, Medium Tier Cloth, Clothing, and Dyes" 44
 # Add Item Ids to the findtype list
 while findtype 11858|5981|29025|15296|3839|3843|25359|3842 0x4F9D4339 as item
     lift item 0x4F9D4339 1
@@ -464,7 +464,7 @@ while findtype 11858|5981|29025|15296|3839|3843|25359|3842 0x4F9D4339 as item
 endwhile
 
 # Distro 4
-overhead "Sorting Items to Fourth Distro Chest" 44
+overhead "Sorting High Tier Skill Scrolls, Cores, Cloth, Clothing, and Dyes" 44
 # Add Item Ids to the findtype list
 while findtype 4025 0x4F9D4339 as item
     lift item 0x4F9D4339 1
@@ -473,20 +473,20 @@ while findtype 4025 0x4F9D4339 as item
 endwhile
 
 # Extra
-overhead "Sorting Items to Fifth Distro Chest" 44
+overhead "Sorting Gems, Leather, and Food Stuffs" 44
 # Add Item Ids to the findtype list
-while findtype 3861|3885|3877|3862|3859|3865|3856|3873|3878|4225|39889|39891|39892|39896|39897|39898|39905|39909|39911|39912|39916|39917|39918|51098|22326 0x4F9D4339 as item
+while findtype 3861|3885|3877|3862|3859|3865|3856|3873|3878|4225|39889|39891|39892|39896|39897|39898|39905|39909|39911|39912|39916|39917|39918|51098|22326|27611|7711|2496|2515|5641|2545|2422 0x4F9D4339 as item
     lift item 0x4F9D4339 60000
-    drop distro_5 -1 -1 0
+    drop Extra
     getlabel 0x4F9D4339 delaycheck
 endwhile
 
 # Gold
-overhead "Sorting Items to Gold Chest" 44
+overhead "Sorting Gold, Survival Gear, RM's, and Links" 44
 # Add Item Ids to the findtype list
 while findtype 37181|3821|24434|43206 0x4F9D4339 as item
     lift item 0x4F9D4339 60000
-    drop distro_1 -1 -1 0
+    drop Gold
     getlabel 0x4F9D4339 delaycheck
 endwhile
 overhead "Item sorting complete!" 65
