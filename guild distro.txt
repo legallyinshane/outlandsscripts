@@ -2,7 +2,7 @@
 # Sorts items from 0x4F9D4339 based upon item type into 4 Distro Chests, an Extras Chest, and Gold Chest
 # script by TheZeroDivide
 # script edited by LyzaLii
-# last update:  6/8/2025 - Update: Adjusted Amounts moved for Extras and Gold to bulk rather than 1 at a time, added Food Stuffs to Extras
+# last update:  6/10/2025 - Update: Added Carpets/Rugs to distrobution list.
 
 # Set variables if they dont exist
 if not varexist distro_1
