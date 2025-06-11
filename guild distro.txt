@@ -436,6 +436,13 @@ clearignore
         @ignore item
     endwhile
 
+    while findtype 'carpet' 0x4F9D4339 as item
+        lift item 1
+        drop distro_2
+        getlabel 0x4F9D4339 delaycheck
+        @ignore item
+    endwhile
+
 # Distro 1
 overhead "Sorting Out Arcane Scrolls and Plant Chemicals" 44
 # Add Item Ids to the findtype list
